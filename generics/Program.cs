@@ -7,7 +7,7 @@ using System.Text;
 
 namespace generics
 {
-    class Program(string cadena);
+    class Program
     {
         static async Task Main(string[] args)
         {
