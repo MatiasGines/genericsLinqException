@@ -7,10 +7,34 @@ using System.Text;
 
 namespace generics
 {
-    class Program
+    class Program(string cadena);
     {
         static async Task Main(string[] args)
         {
+
+            Action<string,string> mostrar = Show;
+            HacerAlgo(mostrar);
+
+        }
+        
+        public static void HacerAlgo(Action<string,string> funcionFinal)
+        {
+            Console.WriteLine("linea de texto");
+            funcionFinal("Esto se envia desde otra funcion "+"otra cadena")    
+            Console.WriteLine("linea de texto");
+        }   
+        public static void Show(string cad, string cad2)
+        {
+            Console.WriteLine(cad + cad2);
+        }
+        public static int Show(string cad)
+        {
+            return cad.Count();
+        }
+    }
+}
+
+            /*
             try {
                 var searcherBeer = new ShearcherBeer();
                 var cantidad = searcherBeer.GetCantidad("NombreDeCerveza");
@@ -34,8 +58,9 @@ namespace generics
             {
                 Console.WriteLine("Esto siempre se ejecuta");
             }
-
+            */
             /*Utilizado para realziar consultas con linq*/
+            /*
             List<Bar> bares = new List<Bar>()
             {
                 new Bar("El bar SOA")
@@ -71,7 +96,7 @@ namespace generics
                        
                       }
                       ).ToList();
-
+            
 
 
             //utilizando generics para hacer una peticion a servicio web mediante la clase SendRequest y su metodo Send
@@ -85,8 +110,3 @@ namespace generics
             Service.SendRequest<Cerveza> service = new Service.SendRequest<Cerveza>();
             var CervezaRespuesta = await service.Send(cerveza);
             */
-
-        }
-    }
-}
-   
